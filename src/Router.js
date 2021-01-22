@@ -7,11 +7,23 @@ import Car from './components/Car'
 import Login from './components/Login'
 
 // Write checkAuth function here
+const checkAuth = () => {
+    const cookies = cookie.parse(document.cookie);
+    return ()
+}
+
 // Check the cookies for a cookie called "loggedIn"
 
 
-// Write ProtectedRoute function here
-
+// Write ProtecctedRoute function here
+const ProtectedRoute = ({component: Component, ...rest}) => {
+    return (
+        <Route 
+        {...rest}
+        render = {(props) => checkAuth() ? <Component/> : <Redirect to= '/login'/>}
+        />
+    )
+}
 
 const Router = () => {
     return (
